@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number</title>
+</head>
+
+<body>
+    <script>
+        let naam = prompt('Welkom! Wat is je naam?');
+        alert(`Hey ${naam}!`);
+        let kleinstGetal = parseInt(prompt('Voer het kleinste nummer in'));
+        let grootsteGetal = parseInt(prompt('Voer het grootste nummer in'));
+        let verschil = grootsteGetal - kleinstGetal;
+        let random = Math.ceil(Math.random() * verschil);
+        for (i = 4; i >= 0; i--) {
+            let cijfer = parseInt(prompt(`Voer een nummer in tussen het kleinste en grootste nummer...`));
+
+            if (kleinstGetal + random === cijfer) {
+                alert('Gefeliciteerd je hebt gewonnen!')
+                alert(`Dag ${naam}. Tot de volgende keer!`)
+                break
+            } else if (kleinstGetal + random !== cijfer && i == 0) {
+                alert('Dat is niet correct en helaas heb je geen poging meer. Tot ziens!')
+                break
+            } else if (kleinstGetal + random !== cijfer && i == 1) {
+                alert('Dat is niet correct. Je hebt nog één poging over...')
+
+            } else {
+                alert('Dat is niet correct.')
+                confirm(`Nog een poging wagen?`)
+                alert(`Aantal resterende pogingen: ${i}`)
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
